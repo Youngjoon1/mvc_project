@@ -10,7 +10,7 @@ public interface BoardMapper {
 	
 	public ArrayList<BoardDTO> getList();
 	
-	public BoardDTO contentView(String title);
+	public BoardDTO contentView(int number);
 	
 	
 }

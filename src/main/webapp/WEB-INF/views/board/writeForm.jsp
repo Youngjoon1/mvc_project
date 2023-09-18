@@ -32,7 +32,7 @@
 					<hr>
 					
 					<b>이미지파일 첨부</b><br>
-					<input type="file" name="imageFileName" onchange="readURL(this)"/><br>
+					<input type="file" name="imgFileName" onchange="readURL(this)"/><br>
 					<img id="preview" src="" width=100 height=100 alt="선택된 이미지가 없습니다" /><br>
 					<hr>
 					<input type="submit" value="글쓰기">

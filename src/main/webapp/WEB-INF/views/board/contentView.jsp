@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>아직도 한가득 남았네</title>
+<title>상세보기</title>
 <style type="text/css">
 	#Con {
 		margin-left: 1000px;
@@ -36,14 +36,19 @@
 				<tr>
 					<th>내용</th>
 					<td>${content.content}</td>
-					<td colspan="2"></td>
+					<td colspan="2">
+						<img src="download?name=${content.imageFileName}" width="200" height="200"><br>
+						<a href="download?name=${content.imageFileName}">다운로드</a>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="4">
-						<button type="button">수정하기</button>
-						<button type="button">삭제하기</button>
-						<button type="button">답글달기</button>
-						<button type="button">리스트로 돌아가기</button>
+						<c:if test="${content.id == user}">
+							<button type="button">수정하기</button>
+							<button type="button">삭제하기</button>
+						</c:if>
+							<button type="button">답글달기</button>
+							<button type="button">리스트로 돌아가기</button>
 					</td>
 				</tr>
 			</table>	

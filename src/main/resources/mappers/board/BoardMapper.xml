@@ -11,7 +11,7 @@
 		<result property="content" column="content"/>		
 		<result property="imageFileName" column="image_file_name"/>		
 		<result property="hit" column="hit"/>		
-		<result property="boarddate" column="savedate" javaType="String" jdbcType="DATE"/>		
+		<result property="boarddate" column="savedate"/>		
 	</resultMap>
 	
 	
@@ -21,11 +21,11 @@
 	</insert>
 	
 	<select id="getList" resultMap="board">
-		SELECT * FROM mvc_board
+		SELECT * FROM mvc_board ORDER BY write_no ASC
 	</select>
 	
 	<select id="contentView" resultMap="board">
-		SELECT * FROM mvc_board WHERE title=#{title} 
+		SELECT * FROM mvc_board WHERE write_no=#{number} 
 	</select>
 	
 	

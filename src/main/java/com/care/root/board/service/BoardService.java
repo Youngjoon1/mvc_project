@@ -12,7 +12,7 @@ public interface BoardService {
 	
 	public ArrayList<BoardDTO> getList();
 	
-	public BoardDTO contentView(String title);
+	public BoardDTO contentView(int number);
 	
 	public String IMAGE_REPO = "C:\\springimage\\image";
 }

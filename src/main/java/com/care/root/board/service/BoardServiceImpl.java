@@ -15,21 +15,12 @@ import com.care.root.mybatis.board.BoardMapper;
 @Service
 public class BoardServiceImpl implements BoardService {
 	@Autowired BoardMapper mapper;
+	@Autowired BoardFileService bfs;
 	
-public void writeSave(BoardDTO dto, MultipartFile imageFileName) {
+	public void writeSave(BoardDTO dto, MultipartFile imageFileName) {
 		
-		if(!imageFileName.isEmpty()) {
-			SimpleDateFormat fo = new SimpleDateFormat("yyyyMMddHHmmss-");
-			String sysName = fo.format(new Date());
-			sysName += imageFileName.getOriginalFilename();
-			File saveFile = new File(IMAGE_REPO + "/" + sysName);
-			
-			try {
-				imageFileName.transferTo(saveFile);
-				dto.setImageFileName(sysName);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		if(!imageFileName.isEmpty() ) {
+			dto.setImageFileName(bfs.saveFile(imageFileName));
 		}else {
 			dto.setImageFileName("nan");
 		}
@@ -44,17 +35,17 @@ public void writeSave(BoardDTO dto, MultipartFile imageFileName) {
 	}
 	
 	public ArrayList<BoardDTO> getList() {
+		ArrayList<BoardDTO> list = null;
 		try {
-			ArrayList<BoardDTO> list = mapper.getList();
-			return list;
+			list = mapper.getList();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
 		}
+		return list;
 	}
 	
-	public BoardDTO contentView(String title) {
-		BoardDTO dto = mapper.contentView(title);
+	public BoardDTO contentView(int number) {
+		BoardDTO dto = mapper.contentView(number);
 		return dto;
 	}
 }

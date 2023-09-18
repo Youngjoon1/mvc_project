@@ -44,7 +44,7 @@
 								<tr>
 									<td>${bList.number}</td>
 									<td>${bList.id}</td>
-									<td><a href="contentView?title=${bList.title}">${bList.title}</a></td>
+									<td><a href="contentView?number=${bList.number}">${bList.title}</a></td>
 									<td>${bList.boarddate}</td>
 									<td>${bList.hit}</td>
 									<td>${bList.imageFileName}</td>
